@@ -1,0 +1,16 @@
+<configuration>
+  <property>
+    <name>schema.registry.topic</name>
+    <value>_schemas</value>
+    <description>
+      The Kafka topic name for Kafka Schema Registry
+    </description>
+  </property>
+  <property>
+    <name>http.port</name>
+    <value>8093</value>
+    <description>
+      HTTP port for Kafka Schema Registry
+    </description>
+  </property>
+</configuration>

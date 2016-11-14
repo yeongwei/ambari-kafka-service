@@ -1,0 +1,101 @@
+<configuration>
+  <property>
+    <name>group.id</name>
+    <value>npi-connect-cluster</value>
+    <description>
+      Kafka connect cluster group ID for NPI.
+    </description>
+  </property>
+  <property>
+    <name>config.storage.topic</name>
+    <value>npi-connect-configs</value>
+    <description>
+      Kafka connect topic name to store connector and task configuration state.
+    </description>
+  </property>
+  <property>
+    <name>offset.storage.topic</name>
+    <value>npi-connect-offsets</value>
+    <description>
+      Kafka connect topic name for message offsets.
+    </description>
+  </property>  
+  <property>
+    <name>offset.flush.interval.ms</name>
+    <value>10000</value>
+    <description>
+      Kafka connect offset interval at which to try committing offsets for tasks.
+    </description>
+  </property>  
+  <property>
+    <name>key.converter</name>
+    <value>org.apache.kafka.connect.json.JsonConverter</value>
+    <description>
+      Kafka connect class name for key Connect data. This controls the format of the data that will be written 
+      to Kafka for source connectors or read from Kafka for sink connectors. Popular formats include Avro and JSON.
+    </description>
+  </property>   
+  <property>
+    <name>value.converter</name>
+    <value>org.apache.kafka.connect.json.JsonConverter</value>
+    <description>
+      Kafka connect class name for value Connect data. This controls the format of the data 
+      that will be written to Kafka for source connectors or read from Kafka for sink connectors. Popular formats 
+      include Avro and JSON.
+    </description>
+  </property>  
+  <property>
+    <name>key.converter.schemas.enable</name>
+    <value>true</value>
+    <description>
+	  Converter specific settings to pass in.
+    </description>
+    <value-attributes>
+      <type>boolean</type>
+    </value-attributes>
+  </property>
+  <property>
+    <name>value.converter.schemas.enable</name>
+    <value>true</value>
+    <description>
+	  Converter specific settings to pass in.
+    </description>
+    <value-attributes>
+      <type>boolean</type>
+    </value-attributes>    
+  </property>
+  <property>
+    <name>internal.key.converter</name>
+    <value>org.apache.kafka.connect.json.JsonConverter</value>
+    <description>
+	  Kafka connect class name for internal converter used for offsets and config date.
+    </description>
+  </property>
+  <property>
+    <name>internal.value.converter</name>
+    <value>org.apache.kafka.connect.json.JsonConverter</value>
+    <description>
+	  Kafka connect class name for internal converter used for offsets and config date.
+    </description>
+  </property>  
+  <property>
+    <name>internal.key.converter.schemas.enable</name>
+    <value>false</value>
+    <description>
+	  Internal converter specific settings to pass in
+    </description>
+    <value-attributes>
+      <type>boolean</type>
+    </value-attributes>    
+  </property>
+  <property>
+    <name>internal.value.converter.schemas.enable</name>
+    <value>false</value>
+    <description>
+	  Internal converter specific settings to pass in
+    </description>
+    <value-attributes>
+      <type>boolean</type>
+    </value-attributes>    
+  </property>                 
+</configuration>

@@ -1,0 +1,26 @@
+<configuration>
+  <property>
+    <name>content</name>
+    <value>
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=[%d] %p %m (%c:%L)%n
+log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
+log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.ROLLINGFILE.layout.ConversionPattern=[%d] %p %m (%c:%L)%n
+# Max log file size of 10MB
+log4j.appender.ROLLINGFILE.MaxFileSize=10MB
+# uncomment the next line to limit number of backup files
+log4j.appender.ROLLINGFILE.MaxBackupIndex=10
+log4j.appender.ROLLINGFILE.Threshold=INFO
+log4j.appender.ROLLINGFILE.File=/var/log/kafka/connect.log
+
+log4j.logger.org.apache.zookeeper=ERROR
+log4j.logger.org.I0Itec.zkclient=ERROR
+log4j.rootLogger=INFO, ROLLINGFILE
+    </value>
+    <description>
+      Kafka connect log-4j properties file.
+    </description>
+  </property>
+</configuration>

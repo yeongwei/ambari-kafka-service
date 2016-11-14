@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+
+<configuration>
+
+  <property>
+    <name>message.max.bytes</name>
+    <value>8000000</value>
+    <description>
+      The maximum size of a message that the server can receive.
+      It is important that this property be in sync with the maximum fetch size your consumers use or
+      else an unruly producer will be able to publish messages too large for consumers to consume.
+    </description>
+  </property>
+  <property>
+    <name>replica.fetch.max.bytes</name>
+    <value>8048576</value>
+    <description>The number of byes of messages to attempt to fetch for each partition in the fetch requests the replicas send to the leader.</description>
+  </property>
+  <property>
+    <name>log.cleaner.enable</name>
+    <value>true</value>
+    <description>Enable/Disable log cleaning for KAFKA messages.</description>
+  </property>
+  <property>
+    <name>log.cleanup.policy</name>
+    <value>delete</value>
+    <description>The default policy for handling log tails. Can be either delete or compact.</description>
+  </property>
+  <property>
+    <name>delete.topic.enable</name>
+    <value>true</value>
+    <description>Enables delete topic. Delete topic through the admin tool will have no effect if this config is turned off.</description>
+  </property>
+  <property>
+    <name>zookeeper.connect</name>
+    <value>localhost:2182</value>
+    <description>
+      Zookeeper also allows you to add a "chroot" path which will make all kafka data for this cluster appear under a particular path.
+      This is a way to setup multiple Kafka clusters or other applications on the same zookeeper cluster. To do this give a connection
+      string in the form hostname1:port1,hostname2:port2,hostname3:port3/chroot/path which would put all this cluster's data under the
+      path /chroot/path. Note that you must create this path yourself prior to starting the broker and consumers must use the
+      same connection string.
+    </description>
+  </property>
+
+</configuration>
